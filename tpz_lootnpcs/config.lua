@@ -35,9 +35,9 @@ Config.RandomRewards = {
 
    MaximumRewards = { min = 1, max = 2 }, -- How many rewards should it give on pickup?
 
-   Rewards = {
+   Rewards = { -- Always use Index Numbers ( [1], [2].. ) so the system will loop again to find new reward result and not the same. 
 
-        { Name = "CASH", Chance = 50, Quantity = { min = 5, max = 10 } },
+        [1] = { Name = "CASH", Chance = 50, Quantity = { min = 5, max = 10 } },
 
     },
 }
