@@ -44,6 +44,11 @@ AddEventHandler("tpz_lootnpcs:server:reward", function(entityId)
     math.randomseed(os.time())
     Wait(math.random(250, 500))
 
+    if not DoesEntityExist(entityId) then
+
+        return
+    end 
+
     if ListedEntities[entityId] then -- Devtools / Injection (Entity has already been looted).
 
         return
