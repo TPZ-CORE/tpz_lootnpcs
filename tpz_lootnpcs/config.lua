@@ -23,3 +23,23 @@ Config.Webhooks = {
 -----------------------------------------------------------
 --[[ General ]]--
 -----------------------------------------------------------
+
+Config.RandomRewards = {
+
+    Accounts = { 
+        Enabled = true, 
+
+        Chance = 100, -- the chance to get money reward / not. 
+
+        Types = {
+
+            [0] = { -- 0 returns dollars.
+                Quantity = { min = 5, max = 10 },
+                Chance = 100, -- the chance to receive between 5-10 dollars. 
+            },
+
+        },
+
+    },
+
+}
