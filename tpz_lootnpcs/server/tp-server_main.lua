@@ -1,5 +1,7 @@
 local TPZ = exports.tpz_core:getCoreAPI()
 
+local ListedEntities = {}
+
 -----------------------------------------------------------
 --[[ Local Functions  ]]--
 -------------------------------------------------------------
@@ -17,6 +19,18 @@ local function GetPlayerData(source)
 
 end
 
+-----------------------------------------------------------
+--[[ Base Events  ]]--
+-----------------------------------------------------------
+ 
+AddEventHandler('onResourceStop', function(resourceName)
+    if (GetCurrentResourceName() ~= resourceName) then
+        return
+    end
+      
+    ListedEntities = nil -- clearing all data
+end)
+
 -------------------------------------------------------------
 --[[ Events  ]]--
 -------------------------------------------------------------
@@ -27,4 +41,13 @@ AddEventHandler("tpz_lootnpcs:server:reward", function(entityId)
     local PlayerData       = GetPlayerData(_source)
     local xPlayer          = TPZ.GetPlayer(_source)
 
+    math.randomseed(os.time())
+    Wait(math.random(250, 500))
+
+    if ListedEntities[entityId] then -- Devtools / Injection (Entity has already been looted).
+
+        return
+    end
+
+    
 end)
