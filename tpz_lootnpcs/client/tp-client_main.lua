@@ -23,7 +23,7 @@ Citizen.CreateThread(function()
                                 if type == 4 then
                                     if Citizen.InvokeNative(0x8DE41E9902E85756, entity) then -- _IS_ENTITY_FULLY_LOOTED
                                     
-                                        TriggerServerEvent("tpz_lootnpcs:server:reward")
+                                        TriggerServerEvent("tpz_lootnpcs:server:reward", entity)
                                     end
                                 end
                             end
