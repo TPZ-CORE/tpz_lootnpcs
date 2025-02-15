@@ -29,8 +29,6 @@ Config.RandomRewards = {
     Accounts = { 
         Enabled = true, 
 
-        Chance = 100, -- the chance to get money reward / not. 
-
         Types = {
 
             [0] = { -- 0 returns dollars.
