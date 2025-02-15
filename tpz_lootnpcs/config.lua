@@ -24,20 +24,20 @@ Config.Webhooks = {
 --[[ General ]]--
 -----------------------------------------------------------
 
+-- weapons: Use UPPERCASE letters on the @Name for the system to read if the given reward is a weapon. 
+
+-- accounts (money): Use "CASH", "GOLD" or "BLACK_MONEY" who are available as default on @Name parameter for the
+-- system to read if the given reward is money. 
+
+-- items: Use anything except as @weapons or @accounts mention. 
+
 Config.RandomRewards = {
 
-    Accounts = { 
-        Enabled = true, 
+   MaximumRewards = { min = 1, max = 2 }, -- How many rewards should it give on pickup?
 
-        Types = {
+   Rewards = {
 
-            [0] = { -- 0 returns dollars.
-                Quantity = { min = 5, max = 10 },
-                Chance = 100, -- the chance to receive between 5-10 dollars. 
-            },
-
-        },
+        { Name = "CASH", Chance = 50, Quantity = { min = 5, max = 10 } },
 
     },
-
 }
