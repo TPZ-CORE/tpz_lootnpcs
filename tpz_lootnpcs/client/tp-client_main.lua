@@ -37,7 +37,7 @@ Citizen.CreateThread(function()
 
                                 if Citizen.InvokeNative(0x8DE41E9902E85756, LootedEntityModel) then -- _IS_ENTITY_FULLY_LOOTED
                                 
-                                    local closestEntityPedsList = exports.tpz_core:getCoreAPI().getClosestEntityPeds(5.0)
+                                    local closestEntityPedsList = exports.tpz_core:getCoreAPI().getClosestPedsNearbyTargetPed(PlayerPedId(), 5.0)
                                     TriggerServerEvent("tpz_lootnpcs:server:reward", closestEntityPedsList, LootedEntityModel)
                                 end
 
