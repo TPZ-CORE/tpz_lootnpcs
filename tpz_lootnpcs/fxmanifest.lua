@@ -1,4 +1,6 @@
-arning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
+fx_version "adamant"
+games {"rdr3"}
+rdr3_warning 'I acknowledge that this is a prerelease build of RedM, and I am aware my resources *will* become incompatible once RedM ships.'
 
 author 'Nosmakos'
 description 'TPZ-CORE - Loot Npcs'
@@ -6,7 +8,7 @@ version '1.0.0'
 
 shared_scripts { 'config.lua', 'locales.lua' }
 server_scripts { 'server/*.lua' }
-client_scripts { 'client/dataview_loot.js', 'client/tp-client_main.lua' }
+client_scripts { '@tpz_core/client/tp-client_dataview.lua', 'client/*.lua' }
 
 dependencies {
     'tpz_core',
