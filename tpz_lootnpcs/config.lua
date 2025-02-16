@@ -1,26 +1,6 @@
 Config = {}
 
 -----------------------------------------------------------
---[[ Discord Webhooking ]]--
------------------------------------------------------------
-
-Config.Webhooks = {
-    
-    ['DEVTOOLS_INJECTION_CHEAT'] = { -- Warnings and Logs about players who used or atleast tried to use devtools injection.
-        Enabled = false, 
-        Url = "", 
-        Color = 10038562,
-    },
-
-    ['LOOTED'] = {
-        Enabled = false, 
-        Url = "", 
-        Color = 10038562,
-    },
-
-}
-
------------------------------------------------------------
 --[[ General ]]--
 -----------------------------------------------------------
 
@@ -41,3 +21,40 @@ Config.RandomRewards = {
 
     },
 }
+
+-----------------------------------------------------------
+--[[ Discord Webhooking ]]--
+-----------------------------------------------------------
+
+Config.Webhooks = {
+    
+    ['DEVTOOLS_INJECTION_CHEAT'] = { -- Warnings and Logs about players who used or atleast tried to use devtools injection.
+        Enabled = false, 
+        Url = "", 
+        Color = 10038562,
+    },
+
+    ['LOOTED'] = {
+        Enabled = false, 
+        Url = "", 
+        Color = 10038562,
+    },
+
+}
+
+-----------------------------------------------------------
+--[[ Notification Functions  ]]--
+-----------------------------------------------------------
+
+-- @param source is always null when called from client.
+-- @type returns "success" or "error" based on actions.
+function SendNotification(source, message, type)
+    local duration = 3000
+
+    if not source then
+        TriggerEvent('tpz_core:sendBottomTipNotification', message, duration)
+    else
+        TriggerClientEvent('tpz_core:sendBottomTipNotification', source, message, duration)
+    end
+
+end
