@@ -15,7 +15,7 @@ Config = {}
 -- @quantity : QUANTITY ON WEAPONS IS ALWAYS (1), quantity parameter will never work!
 Config.RandomRewards = {
 
-   MaximumRewards = { min = 2, max = 2 }, -- How many rewards should it give on pickup?
+   MaximumRewards = { min = 1, max = 2 }, -- How many rewards should it give on pickup?
 
    Rewards = { 
         { name = "0", label = 'Dollars', chance = 100, quantity = { min = 5, max = 10 } },
