@@ -4,21 +4,22 @@ Config = {}
 --[[ General ]]--
 -----------------------------------------------------------
 
--- weapons: Use UPPERCASE letters on the @Name for the system to read if the given reward is a weapon. 
+-- [accounts (money)]: Use "0", "1" or "2" for the system to read the specified inputs as money.
+-- "0" : dollars
+-- "1" : gold
+-- "2" : black money.
 
--- accounts (money): Use "CASH", "GOLD" or "BLACK_MONEY" who are available as default on @Name parameter for the
--- system to read if the given reward is money. 
+-- [weapons]: Use UPPERCASE letters on the @Name for the system to read if the given reward is a weapon. 
+-- [items]: Use anything except as @weapons or @accounts mention. 
 
--- items: Use anything except as @weapons or @accounts mention. 
-
+-- @quantity : QUANTITY ON WEAPONS IS ALWAYS (1), quantity parameter will never work!
 Config.RandomRewards = {
 
-   MaximumRewards = { min = 1, max = 2 }, -- How many rewards should it give on pickup?
+   MaximumRewards = { min = 2, max = 2 }, -- How many rewards should it give on pickup?
 
-   Rewards = { -- Always use Index Numbers ( [1], [2].. ) so the system will loop again to find new reward result and not the same. 
-
-        [1] = { Name = "CASH", Chance = 50, Quantity = { min = 5, max = 10 } },
-
+   Rewards = { 
+        { name = "0", label = 'Dollars', chance = 100, quantity = { min = 5, max = 10 } },
+        { name = "ammoriflenormal", label = 'Ammo Rifle', chance = 100, quantity = { min = 2, max = 5 } },
     },
 }
 
