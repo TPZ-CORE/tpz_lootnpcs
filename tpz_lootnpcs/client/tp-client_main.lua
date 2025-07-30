@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
                         local LootedEntityModel = eventDataStruct:GetInt32(8 * 1)
                         local IsLootSuccess     = eventDataStruct:GetInt32(8 * 2)
 
-                        if (PlayerPedId() == looterId) and (not Citizen.InvokeNative(0x964000D355219FC0, LootedEntityModel)) then -- We make sure the looterId is our PlayerId and entity is not animal.
+                        if (PlayerPedId() == looterId) and (not Citizen.InvokeNative(0x964000D355219FC0, LootedEntityModel)) then -- We make sure the looterId is our PlayerId.
 
                             local type = GetPedType(LootedEntityModel)
 
