@@ -6,10 +6,6 @@ local ListedEntities = {}
 --[[ Local Functions  ]]--
 -------------------------------------------------------------
 
-local function StartsWith(String,Start)
-    return string.sub(String,1,string.len(Start))==Start
-end
-
 local function GetPlayerData(source)
 	local _source = source
     local xPlayer = TPZ.GetPlayer(_source)
@@ -133,7 +129,7 @@ AddEventHandler("tpz_lootnpcs:server:reward", function(closestEntityPeds, entity
             local notify = not received and quantity .. ' ' .. reward.label or received .. ', ' .. quantity .. ' ' .. reward.label
             received = notify
 
-        elseif StartsWith(reward.name, 'WEAPON_') then -- reward is weapon
+        elseif TPZ.StartsWith(reward.name, 'WEAPON_') then -- reward is weapon
 
             local canCarryWeapon = xPlayer.canCarryWeapon(string.upper(reward.name) )
 
