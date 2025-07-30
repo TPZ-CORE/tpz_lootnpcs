@@ -6,13 +6,6 @@ local ListedEntities = {}
 --[[ Local Functions  ]]--
 -------------------------------------------------------------
 
--- @GetTableLength returns the length of a table.
-local function GetTableLength(T)
-    local count = 0
-    for _ in pairs(T) do count = count + 1 end
-    return count
-end
-
 local function StartsWith(String,Start)
     return string.sub(String,1,string.len(Start))==Start
 end
@@ -32,7 +25,7 @@ end
 
 local function HasPedTargetClose(closestEntityPeds, targetEntityId)
 
-    if targetEntityId == nil or closestEntityPeds == nil or closestEntityPeds and GetTableLength(closestEntityPeds) <= 0 then
+    if targetEntityId == nil or closestEntityPeds == nil or closestEntityPeds and TPZ.GetTableLength(closestEntityPeds) <= 0 then
         return false
     end
 
