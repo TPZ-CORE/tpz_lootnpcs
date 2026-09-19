@@ -44,7 +44,7 @@ local function GenerateRandomRewards()
     local maxRewards = math.random(Config.RandomRewards.MaximumRewards.min, Config.RandomRewards.MaximumRewards.max)
 
     if maxRewards <= 0 then -- In case somehow maxRewards are 0, we return as {}.
-        return {}
+        return {} -- 1.0.1
     end
 
     local rewardsList = {}
@@ -115,6 +115,8 @@ AddEventHandler("tpz_lootnpcs:server:reward", function(closestEntityPeds, entity
         xPlayer.ban(Locales['DEVTOOLS_INJECTION_DETECTED'], -1)
         return
     end
+
+	ListedEntities[entityId] = true -- 1.0.1
 
     local getRandomRewards = GenerateRandomRewards() -- table.
 
