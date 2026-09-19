@@ -19,26 +19,6 @@ local function GetPlayerData(source)
 
 end
 
-local function HasPedTargetClose(closestEntityPeds, targetEntityId)
-
-    if targetEntityId == nil or closestEntityPeds == nil or closestEntityPeds and TPZ.GetTableLength(closestEntityPeds) <= 0 then
-        return false
-    end
-
-    for index, nearPed in pairs (closestEntityPeds) do
-
-        -- We check if closest peds contains the target entity and if target entity is dead.
-        -- We also check if pedtype is index 4 which is what we need.
-        if tonumber(nearPed.entity) == tonumber(targetEntityId) and nearPed.isDead and nearPed.pedType == 4 then
-            return true
-        end
-        
-    end
-
-    return false
-
-end
-
 local function GenerateRandomRewards()
 
     local maxRewards = math.random(Config.RandomRewards.MaximumRewards.min, Config.RandomRewards.MaximumRewards.max)
@@ -98,21 +78,6 @@ AddEventHandler("tpz_lootnpcs:server:reward", function(closestEntityPeds, entity
     -- by the player source.
     if ListedEntities[entityId] then
         SendNotification(_source, Locales['ENTITY_HAS_BEEN_ALREADY_LOOTED'], 'error')
-        return
-    end
-
-    local hasEntityTargetClose = HasPedTargetClose(closestEntityPeds, entityId)
-
-    if not hasEntityTargetClose then 
-
-        if Config.Webhooks['DEVTOOLS_INJECTION_CHEAT'].Enabled then
-            local _w, _c      = Config.Webhooks['DEVTOOLS_INJECTION_CHEAT'].Url, Config.Webhooks['DEVTOOLS_INJECTION_CHEAT'].Color
-            local description = 'The specified user attempted to use devtools / injection cheat on npc loot reward.'
-            TPZ.SendToDiscordWithPlayerParameters(_w, Locales['DEVTOOLS_INJECTION_DETECTED_TITLE_LOG'], _source, PlayerData.steamName, PlayerData.username, PlayerData.identifier, PlayerData.charIdentifier, description, _c)
-        end
-    
-        --xPlayer.disconnect(Locales['DEVTOOLS_INJECTION_DETECTED'])
-        xPlayer.ban(Locales['DEVTOOLS_INJECTION_DETECTED'], -1)
         return
     end
 
