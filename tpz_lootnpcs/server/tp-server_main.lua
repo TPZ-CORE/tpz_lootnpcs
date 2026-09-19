@@ -43,8 +43,8 @@ local function GenerateRandomRewards()
 
     local maxRewards = math.random(Config.RandomRewards.MaximumRewards.min, Config.RandomRewards.MaximumRewards.max)
 
-    if maxRewards <= 0 then -- In case somehow maxRewards are 0, we return as null.
-        return nil
+    if maxRewards <= 0 then -- In case somehow maxRewards are 0, we return as {}.
+        return {}
     end
 
     local rewardsList = {}
